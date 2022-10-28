@@ -21,6 +21,11 @@ class SqliteHandler:
             print('Inseted the feed into the database')
             curs.close()
 
+    def delete_feed(self, feed_url):
+        curs = self.con.cursor()
+        curs.execute('DELETE FROM FEEDS WHERE FEED_URL=?',(feed_url,))
+        curs.close()
+
     def list_feeds(self):
         curs = self.con.cursor()
         res = curs.execute('SELECT * FROM FEEDS')

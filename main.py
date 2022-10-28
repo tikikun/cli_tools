@@ -2,6 +2,7 @@ import typer
 
 from handlers.database_handler import SqliteHandler
 from handlers.news_handler import FeedHandler
+from rich import print
 
 app = typer.Typer()
 db_handler = SqliteHandler("local_app.db")
@@ -21,11 +22,33 @@ def rss():
     """
     Feed manager
     """
+    feeds = db_handler.get_feeds()
     db_handler.list_feeds()
     print('---------------')
     print("""
-    Here is your option list of action, please type the number into 
+    Here is your option list of action
+    1. input rss
+    2. remove rss
+    3. exit
+    
     """)
+    option = input('My choice:')
+    match option:
+        case '1':
+            print("[green]Input new rss into database[/green]")
+            rss_link = input("PLease provide the rss link:")
+            input_rss(rss_link)
+        case '2':
+            print("[green]Remove rss from data[/green]")
+            rss_order = input("Which one you want to remove, give id number:")
+            feed_url = feeds[int(rss_order)-1][1]
+            db_handler.delete_feed(feed_url)
+            print(f"Deleted {feed_url} from the feeds database")
+        case '3':
+            return
+        case other:
+            print("Not valid value,stop here")
+            return
 
 
 @app.command()
