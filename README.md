@@ -14,3 +14,8 @@ python main.py --help
 ```
 Please remember to input the rss using rss manager in order for the manager to have data.
 
+You can use above command to get the news after you have input the rss
+```shell
+python main.py get-news
+```
+![img.png](img.png)
