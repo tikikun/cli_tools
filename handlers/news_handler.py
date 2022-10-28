@@ -15,7 +15,6 @@ class FeedHandler:
         self.limit_page = limit_page
 
     def get_news(self):
-        feed_url: str = self.feed_url
         limit_page: int = self.limit_page
         entries: list = self.entries
 
@@ -43,8 +42,11 @@ class FeedHandler:
 
     def open_page(self, entries: list):
         try:
-            get_page = int(input('Do you want to open anything, type number of page \n'))
-            open(entries[int(get_page) - 1].link)
+            get_page = input('Do you want to open anything, type number of page, type "no" to stop \n')
+            if get_page == 'no':
+                return
+            else:
+                open(entries[int(get_page) - 1].link)
         except ValueError:
             print("Input is not of int type , please retry")
             return self.open_page(entries)

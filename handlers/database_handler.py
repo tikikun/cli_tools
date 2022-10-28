@@ -26,8 +26,10 @@ class SqliteHandler:
         res = curs.execute('SELECT * FROM FEEDS')
         res: list = res.fetchall()
         print('[green]Here is the list of feed [/green]')
-        for row in res:
-            print(row)
+        index = 1
+        for title,url,time in res:
+            print(index,title,url,time)
+            index += 1
 
     def get_feeds(self):
         curs = self.con.cursor()
