@@ -62,6 +62,8 @@ def get_news(limit: int = typer.Argument(10)):
     feed_handler: FeedHandler = FeedHandler(feeds[feed_index - 1][1], limit_page=limit)
     feed_handler.get_news()
 
+def main():
+    app()
 
 if __name__ == '__main__':
-    app()
+    main()
