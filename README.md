@@ -7,6 +7,13 @@ support other format rather than just RSS.
 How to use it (currently I haven't specified the setups , should be up pretty soon). First you install the
 requirements.txt
 
+## Requirement
+At least python 3.10 to support match case
+
+Can check for more information here
+
+https://towardsdatascience.com/switch-case-statements-are-coming-to-python-d0caf7b2bfd3
+
 ## How to install the app
 App is packaged on pip
 ```shell
