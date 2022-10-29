@@ -7,15 +7,21 @@ support other format rather than just RSS.
 How to use it (currently I haven't specified the setups , should be up pretty soon). First you install the
 requirements.txt
 
+## How to install the app
+App is packaged on pip
+```shell
+pip install alan-cli
+```
+
 ## How to use the app
 Type the below command for help
 ```shell
-python main.py --help
+alan-cli --help
 ```
 Please remember to input the rss using rss manager in order for the manager to have data.
 
 You can use above command to get the news after you have input the rss
 ```shell
-python main.py get-news
+alan-cli get-news
 ```
 ![img.png](img.png)
