@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='alan-cli',
-    version='0.1.1',
+    version='0.1.3',
+    include_package_data=True,
     python_requires='>=3.10.0',
     license='MIT',
     author="Alan Dao",
