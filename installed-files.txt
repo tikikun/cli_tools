@@ -1,0 +1,4 @@
+/Users/daotuan/mambaforge/envs/python311_proj/lib/python3.11/site-packages/alan_cli-0.1.3-py3.11.egg
+/Users/daotuan/mambaforge/envs/python311_proj/bin/alan-cli
+/Users/daotuan/mambaforge/envs/python311_proj/bin/pygmentize
+/Users/daotuan/mambaforge/envs/python311_proj/bin/cmark

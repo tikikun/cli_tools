@@ -12,6 +12,7 @@ src/alan_cli.egg-info/requires.txt
 src/alan_cli.egg-info/top_level.txt
 src/handlers/__init__.py
 src/handlers/database_handler.py
+src/handlers/google_trends.py
 src/handlers/news_handler.py
 src/program/__init__.py
 src/program/main.py
