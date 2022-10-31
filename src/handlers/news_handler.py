@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from rich import print
 from rich.panel import Panel
 
-from ..handlers.google_trends import TrendReq
+from handlers.google_trends import TrendReq
 
 
 class TrendHandler:

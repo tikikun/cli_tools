@@ -1,8 +1,11 @@
+
 import typer
+import os
+print(os.getcwd())
 from rich import print
 
-from ..handlers.database_handler import SqliteHandler
-from ..handlers.news_handler import FeedHandler, TrendHandler
+from handlers.database_handler import SqliteHandler
+from handlers.news_handler import FeedHandler, TrendHandler
 
 app = typer.Typer()
 db_handler = SqliteHandler("local_app.db")
