@@ -1,7 +1,4 @@
-
 import typer
-import os
-print(os.getcwd())
 from rich import print
 
 from handlers.database_handler import SqliteHandler
@@ -64,6 +61,7 @@ def get_news(limit: int = typer.Argument(10)):
     feed_index = int(input("Type your order of feed to get \n"))
     feed_handler: FeedHandler = FeedHandler(feeds[feed_index - 1][1], limit_page=limit)
     feed_handler.get_news()
+
 
 @app.command()
 def get_trends():

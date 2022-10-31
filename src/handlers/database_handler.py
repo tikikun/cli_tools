@@ -23,7 +23,7 @@ class SqliteHandler:
 
     def delete_feed(self, feed_url):
         curs = self.con.cursor()
-        curs.execute('DELETE FROM FEEDS WHERE FEED_URL=?',(feed_url,))
+        curs.execute('DELETE FROM FEEDS WHERE FEED_URL=?', (feed_url,))
         curs.close()
 
     def list_feeds(self):
@@ -32,8 +32,8 @@ class SqliteHandler:
         res: list = res.fetchall()
         print('[green]Here is the list of feed [/green]')
         index = 1
-        for title,url,time in res:
-            print(index,title,url,time)
+        for title, url, time in res:
+            print(index, title, url, time)
             index += 1
 
     def get_feeds(self):
