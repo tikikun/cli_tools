@@ -1,3 +1,5 @@
+from socket import gethostname, gethostbyname
+
 import typer
 from rich import print
 
@@ -8,7 +10,6 @@ app = typer.Typer()
 db_handler = SqliteHandler("local_app.db")
 
 
-@app.command()
 def input_rss(rss_link: str):
     """
     input-rss [rss_link] | input rss into the database
@@ -87,6 +88,15 @@ def get_trends():
         case other:
             print("Not valid value,stop here")
             return
+
+
+@app.command()
+def my_ip():
+    """
+    Get your ip
+    """
+    my_ip_address = gethostbyname(gethostname())
+    print('Here is your ip address:', my_ip_address)
 
 
 def main():
