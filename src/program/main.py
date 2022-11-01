@@ -1,4 +1,4 @@
-from socket import gethostname, gethostbyname
+import urllib.request
 
 import typer
 from rich import print
@@ -95,7 +95,7 @@ def my_ip():
     """
     Get your ip
     """
-    my_ip_address = gethostbyname(gethostname())
+    my_ip_address = urllib.request.urlopen('https://ident.me').read().decode('utf8')
     print('Here is your ip address:', my_ip_address)
 
 
