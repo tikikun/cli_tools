@@ -15,8 +15,13 @@ class TrendHandler:
 
     def get_top_trends(self, country):
         top_trends = self.trend_req.realtime_trending_searches(pn=country, count=10)
+        index = 1
         for trend in top_trends:
-            print(trend['title'], 'tags:' + '|'.join(trend['entityNames']))
+            title = '[green]'+trend['title']+'[/green]'
+            entities = 'entities:' + '|'.join(trend['entityNames'])
+            print(index, title)
+            print(Panel(entities))
+            index += 1
 
 
 class FeedHandler:

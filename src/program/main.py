@@ -65,7 +65,7 @@ def get_news(limit: int = typer.Argument(10)):
 
 
 @app.command()
-def get_trends():
+def get_trends(limit_page: int = 10):
     """
     Get trending news
     """
