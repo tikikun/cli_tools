@@ -65,7 +65,7 @@ def get_news(limit: int = typer.Argument(10)):
 
 
 @app.command()
-def get_trends(limit_page: int = 10):
+def get_trends(limit_page: int = typer.Argument(10)):
     """
     Get trending news
     """
@@ -79,15 +79,15 @@ def get_trends(limit_page: int = 10):
     option = input('My choice:')
     match option:
         case '1':
-            trend_hand = TrendHandler("VN")
+            trend_hand = TrendHandler(limit_page, "VN")
             trend_hand.get_top_trends()
             trend_hand.get_articles()
         case '2':
-            trend_hand = TrendHandler("SG")
+            trend_hand = TrendHandler(limit_page, "SG")
             trend_hand.get_top_trends()
             trend_hand.get_articles()
         case '3':
-            trend_hand = TrendHandler("US")
+            trend_hand = TrendHandler(limit_page, "US")
             trend_hand.get_top_trends()
             trend_hand.get_articles()
         case other:

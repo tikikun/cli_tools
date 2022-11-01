@@ -1,3 +1,4 @@
+import os
 from webbrowser import open
 
 import feedparser
@@ -9,10 +10,10 @@ from handlers.google_trends import TrendReq
 
 
 class TrendHandler:
-    def __init__(self, country: str = "VN"):
+    def __init__(self, limit_page, country: str = "VN"):
         self.trend_req = TrendReq()
         self.allowed_countries = ['VN', 'SG', 'US']
-        self.top_trends = self.trend_req.realtime_trending_searches(pn=country, count=10)
+        self.top_trends = self.trend_req.realtime_trending_searches(pn=country, count=limit_page)
 
     def get_top_trends(self):
         index = 1
@@ -25,15 +26,18 @@ class TrendHandler:
 
     def get_articles(self):
         trend_index = int(input('Input the trend you want to get articles:')) - 1
+        os.system('clear')
         articles = self.top_trends[trend_index]['articles']
+        trend_index = 1
         for article in articles:
             title = '[green]' + article['articleTitle'] + '[/green]'
             source = article['source']
             time = '[yellow]' + article['time'] + '[/yellow]'
             summary = article['snippet']
-            print(title)
+            print(trend_index, title)
             print('time:', time)
             print(Panel(summary))
+            trend_index += 1
 
         article_index = int(input('You want to open any article? :')) - 1
         open(articles[article_index]['url'])
