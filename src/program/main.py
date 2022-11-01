@@ -76,15 +76,20 @@ def get_trends(limit_page: int = 10):
     3. US
 
     """)
-    trend_handler = TrendHandler()
     option = input('My choice:')
     match option:
         case '1':
-            trend_handler.get_top_trends("VN")
+            trend_hand = TrendHandler("VN")
+            trend_hand.get_top_trends()
+            trend_hand.get_articles()
         case '2':
-            trend_handler.get_top_trends("SG")
+            trend_hand = TrendHandler("SG")
+            trend_hand.get_top_trends()
+            trend_hand.get_articles()
         case '3':
-            trend_handler.get_top_trends("US")
+            trend_hand = TrendHandler("US")
+            trend_hand.get_top_trends()
+            trend_hand.get_articles()
         case other:
             print("Not valid value,stop here")
             return

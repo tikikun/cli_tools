@@ -9,19 +9,34 @@ from handlers.google_trends import TrendReq
 
 
 class TrendHandler:
-    def __init__(self):
+    def __init__(self, country: str = "VN"):
         self.trend_req = TrendReq()
         self.allowed_countries = ['VN', 'SG', 'US']
+        self.top_trends = self.trend_req.realtime_trending_searches(pn=country, count=10)
 
-    def get_top_trends(self, country):
-        top_trends = self.trend_req.realtime_trending_searches(pn=country, count=10)
+    def get_top_trends(self):
         index = 1
-        for trend in top_trends:
-            title = '[green]'+trend['title']+'[/green]'
+        for trend in self.top_trends:
+            title = '[green]' + trend['title'] + '[/green]'
             entities = 'entities:' + '|'.join(trend['entityNames'])
             print(index, title)
             print(Panel(entities))
             index += 1
+
+    def get_articles(self):
+        trend_index = int(input('Input the trend you want to get articles:')) - 1
+        articles = self.top_trends[trend_index]['articles']
+        for article in articles:
+            title = '[green]' + article['articleTitle'] + '[/green]'
+            source = article['source']
+            time = '[yellow]' + article['time'] + '[/yellow]'
+            summary = article['snippet']
+            print(title)
+            print('time:', time)
+            print(Panel(summary))
+
+        article_index = int(input('You want to open any article? :')) - 1
+        open(articles[article_index]['url'])
 
 
 class FeedHandler:
