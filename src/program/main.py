@@ -5,9 +5,14 @@ from rich import print
 
 from handlers.database_handler import SqliteHandler
 from handlers.news_handler import FeedHandler, TrendHandler
+import os
+from pathlib import Path
 
+home_dir = str(Path.home())
+file_name = f"{home_dir}/temp-alan-cli/local_app.db"
+os.makedirs(os.path.dirname(file_name), exist_ok=True)
 app = typer.Typer()
-db_handler = SqliteHandler("local_app.db")
+db_handler = SqliteHandler(file_name)
 
 
 def input_rss(rss_link: str):

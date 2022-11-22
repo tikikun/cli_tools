@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='alan-cli',
-    version='0.1.8',
+    version='0.1.9',
     include_package_data=True,
     python_requires='>=3.10.0',
     license='MIT',

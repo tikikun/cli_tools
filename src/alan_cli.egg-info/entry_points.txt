@@ -1,0 +1,2 @@
+[console_scripts]
+alan-cli = program.main:main
